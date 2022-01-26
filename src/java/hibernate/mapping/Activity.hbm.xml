@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 5, 2020 1:21:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Activity" table="activity" catalog="wookes" optimistic-lock="version">
+        <id name="activityId" type="long">
+            <column name="activity_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="profile" class="hibernate.mapping.Profile" fetch="select">
+            <column name="activity_by" not-null="true" />
+        </many-to-one>
+        <property name="ownerId" type="long">
+            <column name="owner_id" not-null="true" />
+        </property>
+        <property name="objectId" type="java.lang.Long">
+            <column name="object_id" />
+        </property>
+        <property name="parentObjectId" type="java.lang.Long">
+            <column name="parent_object_id" />
+        </property>
+        <property name="postId" type="java.lang.Long">
+            <column name="post_id" />
+        </property>
+        <property name="activityType" type="byte">
+            <column name="activity_type" not-null="true" />
+        </property>
+        <property name="categoryType" type="byte">
+            <column name="category_type" not-null="true" />
+        </property>
+        <property name="unread" type="boolean">
+            <column name="unread" not-null="true" />
+        </property>
+        <property name="creationTime" type="long">
+            <column name="creation_time" not-null="true" />
+        </property>
+        <property name="text" type="string">
+            <column name="text" length="16777215" />
+        </property>
+    </class>
+</hibernate-mapping>

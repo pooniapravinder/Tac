@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 14, 2020 2:46:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Otp" table="otp" catalog="wookes" optimistic-lock="version">
+        <id name="phone" type="long">
+            <column name="phone" />
+            <generator class="assigned" />
+        </id>
+        <property name="otp" type="int">
+            <column name="otp" not-null="true" />
+        </property>
+        <property name="tries" type="byte">
+            <column name="tries" not-null="true" />
+        </property>
+        <property name="timestmp" type="long">
+            <column name="timestmp" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

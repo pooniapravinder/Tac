@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 21, 2020 6:20:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Comments" table="comments" catalog="wookes" optimistic-lock="version">
+        <id name="commentId" type="long">
+            <column name="comment_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="post" class="hibernate.mapping.Post" fetch="select">
+            <column name="post_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="profile" class="hibernate.mapping.Profile" fetch="select">
+            <column name="commented_by" not-null="true" />
+        </many-to-one>
+        <property name="comment" type="string">
+            <column name="comment" length="16777215" not-null="true" />
+        </property>
+        <property name="likes" type="long">
+            <column name="likes" not-null="true" />
+        </property>
+        <property name="replies" type="long">
+            <column name="replies" not-null="true" />
+        </property>
+        <property name="commentTime" type="long">
+            <column name="comment_time" not-null="true" />
+        </property>
+        <property name="activityId" type="long">
+            <column name="activity_id" not-null="true" />
+        </property>
+        <set name="commentsReplieses" table="comments_replies" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="comment_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.CommentsReplies" />
+        </set>
+        <set name="commentsLikeses" table="comments_likes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="comment_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.CommentsLikes" />
+        </set>
+    </class>
+</hibernate-mapping>

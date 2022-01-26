@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 9, 2020 12:02:26 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Records" table="records" catalog="wookes" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="video" type="string">
+            <column name="video" not-null="true" />
+        </property>
+        <property name="cover" type="string">
+            <column name="cover" not-null="true" />
+        </property>
+        <property name="timestmp" type="long">
+            <column name="timestmp" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

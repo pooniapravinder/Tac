@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 20, 2020 6:30:12 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.PostLikes" table="post_likes" catalog="wookes" optimistic-lock="version">
+        <composite-id name="id" class="hibernate.mapping.PostLikesId">
+            <key-property name="postId" type="long">
+                <column name="post_id" />
+            </key-property>
+            <key-property name="userId" type="long">
+                <column name="user_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="post" class="hibernate.mapping.Post" update="false" insert="false" fetch="select">
+            <column name="post_id" not-null="true" />
+        </many-to-one>
+        <property name="activityId" type="long">
+            <column name="activity_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

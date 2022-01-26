@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2020 9:14:16 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.FollowingFollowers" table="following_followers" catalog="wookes" optimistic-lock="version">
+        <composite-id name="id" class="hibernate.mapping.FollowingFollowersId">
+            <key-property name="userOne" type="long">
+                <column name="user_one" />
+            </key-property>
+            <key-property name="userTwo" type="long">
+                <column name="user_two" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="profileByUserOne" class="hibernate.mapping.Profile" update="false" insert="false" fetch="select">
+            <column name="user_one" not-null="true" />
+        </many-to-one>
+        <many-to-one name="profileByUserTwo" class="hibernate.mapping.Profile" update="false" insert="false" fetch="select">
+            <column name="user_two" not-null="true" />
+        </many-to-one>
+        <property name="followTime" type="long">
+            <column name="follow_time" not-null="true" />
+        </property>
+        <property name="activityId" type="long">
+            <column name="activity_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

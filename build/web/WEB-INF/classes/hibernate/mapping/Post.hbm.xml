@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 11, 2020 7:01:04 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Post" table="post" catalog="wookes" optimistic-lock="version">
+        <id name="postId" type="long">
+            <column name="post_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="music" class="hibernate.mapping.Music" fetch="select">
+            <column name="post_music" not-null="true" />
+        </many-to-one>
+        <many-to-one name="profile" class="hibernate.mapping.Profile" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="caption" type="string">
+            <column name="caption" length="150" not-null="true" />
+        </property>
+        <property name="viewPrivacy" type="byte">
+            <column name="view_privacy" not-null="true" />
+        </property>
+        <property name="allowComments" type="boolean">
+            <column name="allow_comments" not-null="true" />
+        </property>
+        <property name="allowDownloads" type="boolean">
+            <column name="allow_downloads" not-null="true" />
+        </property>
+        <property name="coverImage" type="string">
+            <column name="cover_image" length="100" not-null="true" />
+        </property>
+        <property name="mediaKey" type="string">
+            <column name="media_key" length="100" not-null="true" unique="true" />
+        </property>
+        <property name="mediaSize" type="long">
+            <column name="media_size" not-null="true" />
+        </property>
+        <property name="height" type="int">
+            <column name="height" not-null="true" />
+        </property>
+        <property name="width" type="int">
+            <column name="width" not-null="true" />
+        </property>
+        <property name="duration" type="long">
+            <column name="duration" not-null="true" />
+        </property>
+        <property name="likes" type="long">
+            <column name="likes" not-null="true" />
+        </property>
+        <property name="comments" type="long">
+            <column name="comments" not-null="true" />
+        </property>
+        <property name="postTime" type="long">
+            <column name="post_time" not-null="true" />
+        </property>
+        <set name="postSaveds" table="post_saved" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="post_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.PostSaved" />
+        </set>
+        <set name="hashtagses" table="post_hashtags" cascade="all" lazy="true" fetch="select">
+            <key>
+                <column name="post_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="hibernate.mapping.Hashtags">
+                <column name="hashtag_id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="postLikeses" table="post_likes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="post_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.PostLikes" />
+        </set>
+        <set name="commentses" table="comments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="post_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Comments" />
+        </set>
+    </class>
+</hibernate-mapping>

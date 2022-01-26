@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 11, 2020 7:01:04 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Hashtags" table="hashtags" catalog="wookes" optimistic-lock="version">
+        <id name="hashtagId" type="long">
+            <column name="hashtag_id" />
+            <generator class="identity" />
+        </id>
+        <property name="hashtagName" type="string">
+            <column name="hashtag_name" not-null="true" />
+        </property>
+        <property name="hashtagTotal" type="long">
+            <column name="hashtag_total" not-null="true" />
+        </property>
+        <property name="userId" type="long">
+            <column name="user_id" not-null="true" />
+        </property>
+        <property name="insertTime" type="long">
+            <column name="insert_time" not-null="true" />
+        </property>
+        <set name="posts" table="post_hashtags" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="hashtag_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="hibernate.mapping.Post">
+                <column name="post_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

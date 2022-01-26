@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 14, 2020 2:46:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.PostSaved" table="post_saved" catalog="wookes" optimistic-lock="version">
+        <id name="savedId" type="long">
+            <column name="saved_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="post" class="hibernate.mapping.Post" fetch="select">
+            <column name="post_id" not-null="true" />
+        </many-to-one>
+        <property name="userId" type="long">
+            <column name="user_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

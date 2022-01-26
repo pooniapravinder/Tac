@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 3, 2020 7:40:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Music" table="music" catalog="wookes" optimistic-lock="version">
+        <id name="musicId" type="long">
+            <column name="music_id" />
+            <generator class="identity" />
+        </id>
+        <property name="musicKey" type="string">
+            <column name="music_key" length="100" not-null="true" />
+        </property>
+        <property name="album" type="string">
+            <column name="album" length="100" />
+        </property>
+        <property name="artist" type="string">
+            <column name="artist" length="100" />
+        </property>
+        <property name="coverImage" type="string">
+            <column name="cover_image" length="100" />
+        </property>
+        <property name="originalUser" type="java.lang.Long">
+            <column name="original_user" />
+        </property>
+        <property name="sourceType" type="int">
+            <column name="source_type" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

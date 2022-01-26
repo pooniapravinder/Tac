@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 14, 2020 2:46:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Validlogin" table="validlogin" catalog="wookes" optimistic-lock="version">
+        <id name="autoId" type="long">
+            <column name="auto_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="userId" type="long">
+            <column name="user_id" not-null="true" />
+        </property>
+        <property name="loginTimestamp" type="long">
+            <column name="login_timestamp" not-null="true" />
+        </property>
+        <property name="loggedIn" type="boolean">
+            <column name="logged_in" not-null="true" />
+        </property>
+        <property name="abc" type="string">
+            <column name="abc" length="190" not-null="true" />
+        </property>
+        <property name="xyz" type="string">
+            <column name="xyz" length="450" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

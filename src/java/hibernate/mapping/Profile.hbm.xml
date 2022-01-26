@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 21, 2020 6:20:19 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Profile" table="profile" catalog="wookes" optimistic-lock="version">
+        <id name="userId" type="java.lang.Long">
+            <column name="user_id" />
+            <generator class="foreign">
+                <param name="property">accounts</param>
+            </generator>
+        </id>
+        <one-to-one name="accounts" class="hibernate.mapping.Accounts" constrained="true"></one-to-one>
+        <property name="fullName" type="string">
+            <column name="full_name" length="60" not-null="true" />
+        </property>
+        <property name="profilePic" type="string">
+            <column name="profile_pic" length="50" />
+        </property>
+        <property name="gender" type="byte">
+            <column name="gender" not-null="true" />
+        </property>
+        <property name="dob" type="string">
+            <column name="dob" length="10" />
+        </property>
+        <property name="bio" type="string">
+            <column name="bio" length="100" />
+        </property>
+        <property name="followers" type="long">
+            <column name="followers" not-null="true" />
+        </property>
+        <property name="following" type="long">
+            <column name="following" not-null="true" />
+        </property>
+        <property name="likes" type="long">
+            <column name="likes" not-null="true" />
+        </property>
+        <property name="verified" type="boolean">
+            <column name="verified" not-null="true" />
+        </property>
+        <set name="posts" table="post" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Post" />
+        </set>
+        <set name="followingFollowersesForUserOne" table="following_followers" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_one" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.FollowingFollowers" />
+        </set>
+        <set name="followingFollowersesForUserTwo" table="following_followers" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_two" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.FollowingFollowers" />
+        </set>
+        <set name="commentses" table="comments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="commented_by" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.Comments" />
+        </set>
+    </class>
+</hibernate-mapping>

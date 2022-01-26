@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="wookes"/>
+  <table-filter match-name="comments_replies_likes"/>
+  <table-filter match-name="notifications_token"/>
+  <table-filter match-name="hashtags"/>
+  <table-filter match-name="comments_likes"/>
+  <table-filter match-name="post_saved"/>
+  <table-filter match-name="comments"/>
+  <table-filter match-name="post_hashtags"/>
+  <table-filter match-name="otp"/>
+  <table-filter match-name="comments_replies"/>
+  <table-filter match-name="accounts"/>
+  <table-filter match-name="post_likes"/>
+  <table-filter match-name="activity"/>
+  <table-filter match-name="profile"/>
+  <table-filter match-name="post"/>
+  <table-filter match-name="validlogin"/>
+  <table-filter match-name="following_followers"/>
+  <table-filter match-name="music"/>
+  <table-filter match-name="records"/>
+</hibernate-reverse-engineering>

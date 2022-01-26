@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 21, 2020 5:04:41 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.CommentsLikes" table="comments_likes" catalog="wookes" optimistic-lock="version">
+        <composite-id name="id" class="hibernate.mapping.CommentsLikesId">
+            <key-property name="commentId" type="long">
+                <column name="comment_id" />
+            </key-property>
+            <key-property name="userId" type="long">
+                <column name="user_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="comments" class="hibernate.mapping.Comments" update="false" insert="false" fetch="select">
+            <column name="comment_id" not-null="true" />
+        </many-to-one>
+        <property name="activityId" type="long">
+            <column name="activity_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

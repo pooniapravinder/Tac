@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 11, 2020 6:58:03 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.Accounts" table="accounts" catalog="wookes" optimistic-lock="version">
+        <id name="userId" type="java.lang.Long">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="phone" type="long">
+            <column name="phone" not-null="true" unique="true" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" length="60" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="300" not-null="true" />
+        </property>
+        <property name="isBlocked" type="boolean">
+            <column name="is_blocked" not-null="true" />
+        </property>
+        <one-to-one name="profile" class="hibernate.mapping.Profile"></one-to-one>
+    </class>
+</hibernate-mapping>

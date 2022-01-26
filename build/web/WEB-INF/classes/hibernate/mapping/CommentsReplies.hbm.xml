@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 14, 2020 2:46:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.mapping.CommentsReplies" table="comments_replies" catalog="wookes" optimistic-lock="version">
+        <id name="replyId" type="long">
+            <column name="reply_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="comments" class="hibernate.mapping.Comments" fetch="select">
+            <column name="comment_id" not-null="true" />
+        </many-to-one>
+        <property name="repliedBy" type="long">
+            <column name="replied_by" not-null="true" />
+        </property>
+        <property name="reply" type="string">
+            <column name="reply" length="16777215" not-null="true" />
+        </property>
+        <property name="likes" type="long">
+            <column name="likes" not-null="true" />
+        </property>
+        <property name="replyTime" type="long">
+            <column name="reply_time" not-null="true" />
+        </property>
+        <property name="activityId" type="long">
+            <column name="activity_id" not-null="true" />
+        </property>
+        <set name="commentsRepliesLikeses" table="comments_replies_likes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="reply_id" not-null="true" />
+            </key>
+            <one-to-many class="hibernate.mapping.CommentsRepliesLikes" />
+        </set>
+    </class>
+</hibernate-mapping>

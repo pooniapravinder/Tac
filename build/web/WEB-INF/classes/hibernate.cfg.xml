@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://wookes.c1st7wnwzdd2.ap-south-1.rds.amazonaws.com:3306/wookes</property>
+    <property name="hibernate.connection.username">tac_213</property>
+    <property name="hibernate.connection.password">tac6465w</property>
+    <property name="hibernate.jdbc.batch_size">50</property>
+    <mapping resource="hibernate/mapping/PostLikes.hbm.xml"/>
+    <mapping resource="hibernate/mapping/PostSaved.hbm.xml"/>
+    <mapping resource="hibernate/mapping/CommentsReplies.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Profile.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Validlogin.hbm.xml"/>
+    <mapping resource="hibernate/mapping/CommentsRepliesLikes.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Comments.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Post.hbm.xml"/>
+    <mapping resource="hibernate/mapping/CommentsLikes.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Accounts.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Otp.hbm.xml"/>
+    <mapping resource="hibernate/mapping/FollowingFollowers.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Hashtags.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Activity.hbm.xml"/>
+    <mapping resource="hibernate/mapping/NotificationsToken.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Tokens.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Music.hbm.xml"/>
+    <mapping resource="hibernate/mapping/Records.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
